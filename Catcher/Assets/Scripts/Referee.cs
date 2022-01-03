@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Referee : MonoBehaviour
@@ -17,6 +15,8 @@ public class Referee : MonoBehaviour
     // 3.兩個物件要有一個勾 Is Trigger 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+
         if (collision.name == target)
         {
             dialogueSystem.StartDialogue(dataDialogue.dialogues);
