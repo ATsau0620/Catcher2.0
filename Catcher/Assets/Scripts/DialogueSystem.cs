@@ -1,6 +1,6 @@
-using System.Collections;
 using UnityEngine;
-
+using UnityEngine.UI;
+using System.Collections;
 public class DialogueSystem : MonoBehaviour
 
 {
@@ -9,7 +9,7 @@ public class DialogueSystem : MonoBehaviour
     [Header("對話系統")]
     public GameObject goDialogue;
     [Header("對話內容")]
-    public Text textContent;
+    public  Text textContent;
     [Header("三角形")]
     public GameObject goTip;
     [Header("對話按鍵")]
