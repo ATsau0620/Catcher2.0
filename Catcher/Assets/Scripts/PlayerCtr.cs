@@ -22,6 +22,9 @@ public class PlayerCtr : MonoBehaviour
     public string parameterWalk = "開始遊戲";
     public string paramterJump = "跳躍開關";
 
+    public int extraJumps;
+    
+
     #endregion
 
     #region  欄位:私人
@@ -40,9 +43,9 @@ public class PlayerCtr : MonoBehaviour
 
     private void Update()
     {
-        //Flip();
         CheckGround();
         Jamp();
+        
     }
 
 
@@ -72,7 +75,7 @@ public class PlayerCtr : MonoBehaviour
         Collider2D hit = Physics2D.OverlapCircle(transform.position +
             transform.TransformDirection(checkGroundOffset), checkGroundRadius, canJumpLayer);
 
-        print("碰到的物件名稱:" + hit.name);
+        //print("碰到的物件名稱:" + hit.name);
 
         isGround = hit;
 
