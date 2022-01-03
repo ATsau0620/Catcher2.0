@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.005
   speed: 3.5
-  jump: 550
+  jump: 12
   checkGroundRadius: 0.12
   checkGroundOffset: {x: 0, y: -0.98, z: 0}
   keyjump: 273
@@ -1552,7 +1552,7 @@ MonoBehaviour:
     m_Bits: 256
   parameterWalk: "\u958B\u95DC\u8D70\u8DEF"
   paramterJump: "\u8DF3\u8E8D\u958B\u95DC"
-  extraJumps: 0
+  extraJumpsValue: 1
   isGround: 0
 --- !u!1 &464684369
 GameObject:
@@ -3862,7 +3862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1599873307
 BoxCollider2D:
   m_ObjectHideFlags: 0

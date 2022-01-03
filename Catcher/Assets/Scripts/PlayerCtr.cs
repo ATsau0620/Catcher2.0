@@ -21,9 +21,10 @@ public class PlayerCtr : MonoBehaviour
     [Header("動畫參數 : 走路與跳躍")]
     public string parameterWalk = "開始遊戲";
     public string paramterJump = "跳躍開關";
+    [Header("二段跳")]
+    private int extraJumps;
+    public int extraJumpsValue;
 
-    public int extraJumps;
-    
 
     #endregion
 
@@ -39,6 +40,7 @@ public class PlayerCtr : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
+        extraJumps = extraJumpsValue; 
     }
 
     private void Update()
@@ -46,6 +48,19 @@ public class PlayerCtr : MonoBehaviour
         CheckGround();
         Jamp();
         
+        if(isGround == true)
+        {
+            extraJumps = extraJumpsValue;
+        }
+        if(Input.GetKeyDown(KeyCode.UpArrow) && extraJumps >0 )
+        {
+            rig.velocity = Vector2.up * jump;
+            extraJumps--;
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0 && isGround == true)
+        {
+            rig.velocity = Vector2.up * jump;
+        }
     }
 
 
