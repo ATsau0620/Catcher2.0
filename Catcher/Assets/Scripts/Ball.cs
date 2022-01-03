@@ -22,11 +22,12 @@ public class Ball : MonoBehaviour
     {
 
 
-        //如果被子彈打到
+        //如果被玩家打到
 
         if (collision.name == "啊草")
 
         {
+            ScoreCode.Score = ScoreCode.Score + 10;
 
             //執行怪物死亡
 
