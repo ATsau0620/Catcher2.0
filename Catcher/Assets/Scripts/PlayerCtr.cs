@@ -27,6 +27,23 @@ public class PlayerCtr : MonoBehaviour
     [Header("檢測")]
     public bool talking;
 
+
+    int HeartNum = 3;
+    public GameObject Heart01;
+    public GameObject Heart02;
+    public GameObject Heart03;
+
+
+
+    //【血量控制1/4】
+    [Header("最高血量")]
+    public int maxHealth = 5;
+
+    [Header("當前血量"), Range(0, 5)]      //在檢查器內的輔助顯示+可調動 
+    //private int currentHelth;           //定義當前血量(不顯示)     
+    public int currentHealth;             //定義當前血量(顯示在檢查器)
+
+
     #endregion
 
     #region  欄位:私人
@@ -44,6 +61,14 @@ public class PlayerCtr : MonoBehaviour
         ani = GetComponent<Animator>();
         extraJumps = extraJumpsValue;
         ds = GetComponent<DS>();
+
+        //【血量控制2/4】
+        currentHealth = maxHealth;
+        print("啊草當前血量為:" + currentHealth);
+
+
+        //audioSource = GetComponent<AudioSource>
+
     }
 
     private void Update()
@@ -79,7 +104,39 @@ public class PlayerCtr : MonoBehaviour
            // PlayerCtr.x = PlayerCtr.x + moveSpeed;
             //transform.position = PlayerCtr;
         }
+
+
+
+
+
+
+
      }
+
+    private void FixedUpdate()
+    {
+        //【血量控制4 / 4】
+        if (currentHealth == 0)
+        {
+            Application.LoadLevel("Week12_Health-2_damage");
+
+        }
+    }
+
+    //【血量控制3/4】
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
+          //  PlaySound(playerHit);
+        }
+
+        currentHealth = currentHealth + amount;
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        print("Ruby 當前血量 :" + currentHealth);
+
+
+    }
 
 
     //將私人欄位顯示在屬性版上
@@ -133,74 +190,64 @@ public class PlayerCtr : MonoBehaviour
 
     }
 
+    //下面這個函式是當玩家碰撞到其他物體時會執行
 
-    public int maxHealth = 5;
-    public float timeInvincible = 2.0f;
-    public Transform respawnPosition;
-    public ParticleSystem hitParticle;
+    private void OnTriggerEnter2D(Collider2D collision)
 
-    public int health
-    {
-        get { return currentHealth; }
-    }
-
-    int currentHealth;
-    float invincibleTimer;
-    bool isInvincible;
-
-    Animator animator; //面對方向?
-    Vector2 lookDirection = new Vector2(1, 0);
-
-    AudioSource audioSource;
-
-
-    // Start is called before the first frame update
-    void Start()
     {
 
-    }
+        //如果碰到Monster怪物時，扣一顆愛心
 
-    // Update is called once per frame
-    void Update()
-    {
-        // ================= HEALTH ====================結束遊戲?
-        if (isInvincible)
+        if (collision.name == "ball_2")
+
         {
-            invincibleTimer -= Time.deltaTime;
-            if (invincibleTimer < 0)
-                isInvincible = false;
+
+            //刪除怪物
+
+            Destroy(collision.gameObject);
+
+
+
+            //愛心數量-1
+
+            HeartNum = HeartNum - 1;
+
+
+
+            //根據愛心數量，顯示愛心圖案
+
+            if (HeartNum == 2) //如果還有兩顆愛心
+
+            {
+
+                //讓第一顆愛心隱藏
+
+                Heart01.SetActive(false);
+
+            }
+
+            else if (HeartNum == 1) //如果還有一顆愛心
+
+            {
+
+                //讓第二顆愛心隱藏
+
+                Heart02.SetActive(false);
+
+            }
+
+            else if (HeartNum == 0) //如果沒有愛心
+
+            {
+
+                //讓第三顆愛心隱藏
+
+                Heart03.SetActive(false);
+
+            }
+
         }
+
     }
 
-
-    // ===================== HEALTH ==================
-    public void PMHealth(int amount)
-    {
-        if (amount < 0)
-        {
-            if (isInvincible)
-                return;
-
-            isInvincible = true;
-            invincibleTimer = timeInvincible;
-
-            animator.SetTrigger("Hit");
-            //audioSource.PlayOneShot(hitSound); 掛聲音*************
-
-            Instantiate(hitParticle, transform.position + Vector3.up * 0.5f, Quaternion.identity);
-        }
-
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-
-        if (currentHealth == 0)
-            Respawn();
-
-        UIHealthBar.Instance.SetValue(currentHealth / (float)maxHealth);
-    }
-
-    void Respawn()
-    {
-        PMHealth(maxHealth);
-        transform.position = respawnPosition.position;
-    }
 }
