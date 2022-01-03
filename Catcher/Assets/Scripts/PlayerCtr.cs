@@ -24,7 +24,8 @@ public class PlayerCtr : MonoBehaviour
     [Header("二段跳")]
     private int extraJumps;
     public int extraJumpsValue;
-
+    [Header("檢測")]
+    public bool talking;
 
     #endregion
 
@@ -34,13 +35,15 @@ public class PlayerCtr : MonoBehaviour
     /// 鋼體元件 Rigidbody 2D
     /// </summary>
     private Rigidbody2D rig;
-
+    private DS ds;
+    
 
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
-        extraJumps = extraJumpsValue; 
+        extraJumps = extraJumpsValue;
+        ds = GetComponent<DS>();
     }
 
     private void Update()
@@ -61,7 +64,22 @@ public class PlayerCtr : MonoBehaviour
         {
             rig.velocity = Vector2.up * jump;
         }
-    }
+
+       if (talking == true)
+        {
+            Vector2 PlayerCtr = transform.position;
+            PlayerCtr.x = moveSpeed;
+            moveSpeed = 0;
+            transform.position = PlayerCtr;
+        }
+       else if (talking == false)
+        
+        {
+            Vector2 PlayerCtr = transform.position;
+            PlayerCtr.x = PlayerCtr.x + moveSpeed;
+            transform.position = PlayerCtr;
+        }
+     }
 
 
     //將私人欄位顯示在屬性版上
@@ -107,5 +125,13 @@ public class PlayerCtr : MonoBehaviour
         }
 
     }
+
+    //檢測對話結束與否
+    private void CheckTalking()
+    {
+
+
+    }
+
 
 }

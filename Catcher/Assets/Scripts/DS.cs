@@ -23,7 +23,7 @@ public class DS : MonoBehaviour
     {
         
         string test1 = "你好，參賽者，歡迎參加本競賽！";
-        string test2 = "請按下滑鼠右鍵開始進入比賽";
+        string test2 = "請按下空白鍵開始進入比賽";
         string[] test = { test1, test2 }; 
 
         goDialogue.SetActive(true);       //顯示對話物件
