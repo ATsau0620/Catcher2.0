@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //建立專案內的選單(menuName = "選單名稱") 資料夾/子資料
-[CreateAssetMenu( menuName = "ATSAU/對話資料")]
+[CreateAssetMenu( menuName = "Exit/對話資料")]
 /// <summary>
 /// 對話資料
 /// 保存NPC跟玩家的對話資料

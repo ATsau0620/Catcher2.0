@@ -1011,7 +1011,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359832518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8595304, y: -2.4917445, z: 0}
+  m_LocalPosition: {x: -2.8595304, y: -2.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1030,7 +1030,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.8752384, y: -0.5028973}
+  m_Offset: {x: -1.8752384, y: 0.74896336}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1041,7 +1041,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.375477, y: 3.7241545}
+  m_Size: {x: 6.375477, y: 1.2204332}
   m_EdgeRadius: 0
 --- !u!114 &359832522
 MonoBehaviour:
@@ -1400,7 +1400,7 @@ GameObject:
   - component: {fileID: 438703947}
   - component: {fileID: 438703946}
   - component: {fileID: 438703948}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "\u554A\u8349"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1485,7 +1485,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438703942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.113827, y: -1.72, z: 0}
+  m_LocalPosition: {x: -7.113827, y: -3.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 870076939}
@@ -1649,10 +1649,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf25d771da190d459bc7b8f070c2617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 0.3
+  interval: 0.15
   goDialogue: {fileID: 1921275219}
   textContent: {fileID: 1673708652}
-  goTip: {fileID: 0}
+  goTip: {fileID: 1240931367}
   keyDialogue: 32
 --- !u!4 &477963467
 Transform:
@@ -1840,7 +1840,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569433540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2778039, y: -0.64123344, z: -173.50113}
+  m_LocalPosition: {x: 0.2788763, y: -0.64120674, z: -173.50113}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4492,7 +4492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1921275220
 MonoBehaviour:
   m_ObjectHideFlags: 0
