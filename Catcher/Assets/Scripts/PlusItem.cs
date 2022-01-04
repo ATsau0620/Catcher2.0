@@ -6,9 +6,32 @@ using UnityEngine;
 /// </summary>
 public class PlusItem : MonoBehaviour
 {
+    
+    [Header("移動速度"), Range(0, 500)]
+    public float speed = 3.5f;
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    int HeartNum = 3;
+    public GameObject Heart01;
+    public GameObject Heart02;
+    public GameObject Heart03;
+
+    void Update()
+
     {
+
+
+        //怪物持續向下移動
+
+        this.transform.position += new Vector3(-0.05f,0, 0);
+
+    }
+
+    //如果被東西碰到
+
+    private void OnTriggerEnter2D(Collider2D collision)
+
+    {
+
         //Instantiate(pickE, gameObject.transform.position, Quaternion.identity);
 
 
@@ -20,8 +43,46 @@ public class PlusItem : MonoBehaviour
 
         //pc.PlaySound(audioClip);
 
+        //如果被玩家打到
+
+        if (collision.name == "啊草")
+
+        {
+       
+
+            //執行怪物死亡
+
+            BallDie();
+
+        }
+
+        
+
+if (collision.name == "Wall_4")
+
+        {
+
+            //怪物消失
+
+            Destroy(this.gameObject);
+
+        }
 
     }
 
+
+    //爆炸完畢讓怪物消失
+
+    public void BallDie()
+
+    {
+
+        //怪物消失
+
+        Destroy(this.gameObject);
+
+    }
+
+ 
  
 }

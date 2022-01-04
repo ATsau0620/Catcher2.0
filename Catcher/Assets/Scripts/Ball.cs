@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 
-{ 
+    
+{
+    [Header("移動速度"), Range(0, 500)]
+    public float speed = 3.5f;
+
     void Update()
 
     {
 
+
         //怪物持續向下移動
 
-        this.transform.position += new Vector3(0, -0.05f, 0);
+        this.transform.position += new Vector3(-0.05f,0, 0);
 
     }
 

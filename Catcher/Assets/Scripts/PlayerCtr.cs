@@ -53,7 +53,7 @@ public class PlayerCtr : MonoBehaviour
     /// </summary>
     private Rigidbody2D rig;
     private DS ds;
-    
+    private BC bc;
 
     private void Start()
     {
@@ -133,7 +133,7 @@ public class PlayerCtr : MonoBehaviour
 
         currentHealth = currentHealth + amount;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        print("Ruby 當前血量 :" + currentHealth);
+        print("啊草 當前血量 :" + currentHealth);
 
 
     }
@@ -196,13 +196,13 @@ public class PlayerCtr : MonoBehaviour
 
     {
 
-        //如果碰到Monster怪物時，扣一顆愛心
+        //如果碰到球時，扣一顆愛心
 
-        if (collision.name == "ball_2")
+        if (collision.name == "ballindex")
 
         {
 
-            //刪除怪物
+            //刪除球
 
             Destroy(collision.gameObject);
 
