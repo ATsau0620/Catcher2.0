@@ -10,11 +10,6 @@ public class PlusItem : MonoBehaviour
     [Header("²¾°Ê³t«×"), Range(0, 500)]
     public float speed = 3.5f;
 
-    int HeartNum = 3;
-    public GameObject Heart01;
-    public GameObject Heart02;
-    public GameObject Heart03;
-
     void Update()
 
     {

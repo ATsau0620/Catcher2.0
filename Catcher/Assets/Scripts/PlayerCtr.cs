@@ -100,9 +100,9 @@ public class PlayerCtr : MonoBehaviour
        //else if (talking == false)
         
         {
-            //Vector2 PlayerCtr = transform.position;
-           // PlayerCtr.x = PlayerCtr.x + moveSpeed;
-            //transform.position = PlayerCtr;
+            Vector2 PlayerCtr = transform.position;
+            PlayerCtr.x = PlayerCtr.x + moveSpeed;
+            transform.position = PlayerCtr;
         }
 
 
@@ -198,7 +198,7 @@ public class PlayerCtr : MonoBehaviour
 
         //如果碰到球時，扣一顆愛心
 
-        if (collision.name == "ballindex")
+        if (collision.tag == "damge")
 
         {
 

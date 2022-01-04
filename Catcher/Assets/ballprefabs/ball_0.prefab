@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 3055291996289755618}
   - component: {fileID: 36499344241448009}
   - component: {fileID: -2254603710953178384}
-  - component: {fileID: 8724259280748434105}
+  - component: {fileID: -3518047183539444262}
   m_Layer: 10
   m_Name: ball_0
-  m_TagString: Untagged
+  m_TagString: damge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +127,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.58
---- !u!114 &8724259280748434105
+--- !u!114 &-3518047183539444262
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
