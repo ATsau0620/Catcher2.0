@@ -14,6 +14,8 @@ public class BC : MonoBehaviour
     public GameObject[] ballprefabs;
     public int ballIndex;
     public PlayerCtr pc;
+    public Camera camera;
+
 
     [Header("檢查地板尺寸與位移")]
     [Range(0, 1)]
@@ -27,6 +29,7 @@ public class BC : MonoBehaviour
 
         InvokeRepeating("BallCreater", 0.5f, 1);
         pc = GetComponent <PlayerCtr>();
+        camera = GetComponent<Camera>();
     }
 
     public void BallCreater()
@@ -35,11 +38,11 @@ public class BC : MonoBehaviour
 
         int BallNum;
 
-        //隨機決定要生成幾個怪物(0-2個隨機)
+        //隨機決定要生成幾個球(1-3個隨機)
 
-        BallNum = Random.Range(1, 3);
+        BallNum = Random.Range(1, 4);
 
-        //開始生成怪物
+        //開始生成球
 
         for (int i = 0; i < BallNum; i++)
 
@@ -48,7 +51,7 @@ public class BC : MonoBehaviour
             //生成球球
 
             ballIndex = Random.Range(0, ballprefabs.Length);
-            Instantiate(ballprefabs[ballIndex], new Vector3(pc.transform.position.x + 14, Random.Range(-4,3), 0), 
+            Instantiate(ballprefabs[ballIndex], new Vector3(7, Random.Range(-4,3), 0), 
                 ballprefabs[ballIndex].transform.rotation);
 
         }

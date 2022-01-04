@@ -100,9 +100,9 @@ public class PlayerCtr : MonoBehaviour
        //else if (talking == false)
         
         {
-            Vector2 PlayerCtr = transform.position;
-            PlayerCtr.x = PlayerCtr.x + moveSpeed;
-            transform.position = PlayerCtr;
+           // Vector2 PlayerCtr = transform.position;
+           //PlayerCtr.x = PlayerCtr.x + moveSpeed;
+           // transform.position = PlayerCtr;
         }
 
 

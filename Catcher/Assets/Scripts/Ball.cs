@@ -14,7 +14,7 @@ public class Ball : MonoBehaviour
     {
 
 
-        //怪物持續向下移動
+        //球持續向左移動
 
         this.transform.position += new Vector3(-0.05f,0, 0);
 
@@ -34,39 +34,15 @@ public class Ball : MonoBehaviour
         {
             ScoreCode.Score = ScoreCode.Score + 10;
 
-            //執行怪物死亡
-
-            BallDie();
-
-        }
-
-        
-
-if (collision.name == "Wall_4")
-
-        {
-
-            //怪物消失
+            //執行球消失
 
             Destroy(this.gameObject);
 
         }
 
-    }
 
-
-    //爆炸完畢讓怪物消失
-
-    public void BallDie()
-
-    {
-
-        //怪物消失
-
-        Destroy(this.gameObject);
 
     }
-
  
 }
 
